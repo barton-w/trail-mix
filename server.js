@@ -5,6 +5,7 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 require("dotenv").config();
+const accountController = require("./controllers/account.js");
 
 //Configuration
 const port = process.env.PORT;
@@ -18,6 +19,8 @@ app.use(session({
   saveUninitialized: false
 }));
 app.use(methodOverride("_method"));
+app.use(express.static("public"));
+app.use("/account", accountController);
 
 //MongoDB configuration and connection
 mongoose.set("useFindAndModify", false);

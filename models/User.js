@@ -1,6 +1,6 @@
 //Establish User schema
 const mongoose = require("mongoose");
-const userSchema = mew mongoose.Schema({
+const userSchema = new mongoose.Schema({
   username: String,
   password: String
 })
