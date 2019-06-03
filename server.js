@@ -36,5 +36,7 @@ app.listen(port, () => {
 
 //Routes
 app.get("/", (request, response) => {
+  console.log(request.session.currentUser);
+  console.log(request.session.currentUserName);
   response.send("HELLO WORLD");
 });
