@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <%include ../../partials/stylesheets.ejs%>
+    <title>Add a Trail</title>
+  </head>
+  <body>
+    <h1>Add a Trail</h1>
+    <form action="/trails/add" method="post">
+        <div class="row">
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="trail_name" placeholder="The trail you hiked" required>
+          </div>
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="location" placeholder="Location" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <input class="u-full-width" type="text" name="image" placeholder="Image URL">
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <input class="u-full-width" type="text" name="trail_features" placeholder="Trail features i.e. mountain views, waterfalls, birds of prey, etc (separated by commas)" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="conditions" placeholder="Conditions">
+          </div>
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="exposure" placeholder="Exposure">
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="route" placeholder="Your route">
+          </div>
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="distance" placeholder="Distance">
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="elevation_gain" placeholder="Elevation gain">
+          </div>
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="difficulty" placeholder="Difficulty">
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="wildlife" placeholder="Wildlife seen">
+          </div>
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="flora" placeholder="Flora seen">
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <input class="u-full-width" type="text" name="notes" placeholder="Your notes about the hike">
+          </div>
+        </div>
+        <div class="row">
+          <label for="share">
+            <input type="checkbox" name="share">
+            <span class="label-body">Share this trail with the Trail Mix community</span>
+          </label>
+        </div>
+        <div class="row">
+          <input class="button-primary" type="submit" value="Add Trail">
+        </div>
+      </form>
+  </body>
+</html>

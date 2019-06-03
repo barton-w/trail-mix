@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 require("dotenv").config();
 const accountController = require("./controllers/account.js");
+const trailsController = require("./controllers/trails.js");
 
 //Configuration
 const port = process.env.PORT;
@@ -21,6 +22,7 @@ app.use(session({
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 app.use("/account", accountController);
+app.use("/trails", trailsController);
 
 //MongoDB configuration and connection
 mongoose.set("useFindAndModify", false);
