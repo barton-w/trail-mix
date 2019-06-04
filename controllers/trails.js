@@ -22,8 +22,15 @@ router.get("/view/:id", (request, response) => {
 ////POST routes///
 //////////////////
 router.post("/add", (request, response) => {
-  console.log(request.body);
-  response.send("POSTED!")
+  request.body.user = request.session.currentUser;
+  Trail.create(request.body, (error, createdTrail) => {
+    if (error) {
+      console.log(error);
+      response.send(errorResponse);
+    } else {
+      response.redirect("/");
+    };
+  });
 });
 
 //Export router
