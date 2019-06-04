@@ -17,6 +17,7 @@
     <%for(let i=0; i<trails.length; i++){%>
       <h5><%=trails[i].trail_name%></h5>
       <p><%=trails[i].trail_features%></p>
+      <a class="button" href="/trails/view/<%=trails[i]._id%>">See More</a>
     <%}%>
   </body>
 </html>

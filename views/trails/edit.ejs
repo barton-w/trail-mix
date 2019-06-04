@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <%include ../../partials/stylesheets.ejs%>
+    <title>Edit <%=trail[0].trail_name%></title>
+  </head>
+  <body>
+    <h1>Edit <%=trail[0].trail_name%></h1>
+    <form action="/trails/edit/<%=trail[0]._id%>?_method=PUT" method="post">
+        <div class="row">
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="trail_name" value="<%=trail[0].trail_name%>" required>
+          </div>
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="location" value="<%=trail[0].location%>" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <input class="u-full-width" type="text" name="image" value="<%=trail[0].image%>">
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <input class="u-full-width" type="text" name="trail_features" value="<%=trail[0].trail_features%>" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="conditions" value="<%=trail[0].conditions%>">
+          </div>
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="exposure" value="<%=trail[0].exposure%>">
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="route" value="<%=trail[0].route%>">
+          </div>
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="distance" value="<%=trail[0].distance%>">
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="elevation_gain" value="<%=trail[0].elevation_gain%>">
+          </div>
+          <div class="six columns">
+            <select class="u-full-width" name="difficulty">
+              <option value="Easy"
+              <%if(trail[0].difficulty === "Easy"){%>
+                selected
+              <%}%>
+              >Difficulty - Easy</option>
+              <option value="Moderate"
+              <%if(trail[0].difficulty === "Moderate"){%>
+                selected
+              <%}%>
+              >Difficulty - Moderate</option>
+              <option value="Hard"
+              <%if(trail[0].difficulty === "Hard"){%>
+                selected
+              <%}%>
+              >Difficulty - Hard</option>
+              <option value="Extreme"
+              <%if(trail[0].difficulty === "Extreme"){%>
+                selected
+              <%}%>
+              >Difficulty - Extreme</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="wildlife" value="<%=trail[0].wildlife%>">
+          </div>
+          <div class="six columns">
+            <input class="u-full-width" type="text" name="flora" value="<%=trail[0].flora%>">
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <input class="u-full-width" type="text" name="notes" value="<%=trail[0].notes%>">
+          </div>
+        </div>
+        <div class="row">
+          <label for="share">
+            <input type="checkbox" name="share"
+            <%if(trail[0].share === true){%>
+              checked
+            <%}%>
+            >
+            <span class="label-body">Share this trail with the Trail Mix community</span>
+          </label>
+        </div>
+        <div class="row">
+          <input class="button-primary" type="submit" value="Edit Trail">
+        </div>
+      </form>
+  </body>
+</html>
