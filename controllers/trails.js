@@ -118,5 +118,19 @@ router.put("/edit/:id", (request, response) => {
   });
 });
 
+//////////////////
+///DELETE routes//
+//////////////////
+router.delete("/:id", (request, response) => {
+  Trail.deleteOne({_id: request.params.id}, (error, deletedTrail) => {
+    if (error) {
+      console.log(error);
+      response.send(errorResponse);
+    } else {
+      response.redirect("/trails");
+    };
+  });
+});
+
 //Export router
 module.exports = router;
