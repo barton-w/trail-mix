@@ -10,14 +10,14 @@ const errorResponse = "Oh no, an error occurred! Please try again";
 //////////////////
 router.get("/create", (request, response) => {
   if (request.session.currentUser) {
-    response.redirect("/");
+    response.redirect("/trails");
   } else {
     response.render("account/create.ejs");
   };
 });
 router.get("/login", (request, response) => {
   if (request.session.currentUser) {
-    response.redirect("/");
+    response.redirect("/trails");
   } else {
     response.render("account/login.ejs", {
       message: "none"
@@ -37,7 +37,7 @@ router.post("/create", (request, response) => {
     } else {
       request.session.currentUserName = createdUser.username;
       request.session.currentUser = createdUser._id;
-      response.redirect("/");
+      response.redirect("/trails");
     };
   });
 });
@@ -54,7 +54,7 @@ router.post("/login", (request, response) => {
     } else if (bcrypt.compareSync(request.body.password, foundUser.password)) {
       request.session.currentUserName = foundUser.username;
       request.session.currentUser = foundUser._id;
-      response.redirect("/");
+      response.redirect("/trails");
     } else {
       response.render("account/login.ejs", {
         message: "Incorrect password, please try again"
