@@ -86,6 +86,26 @@ router.get("/edit/:id", (request, response) => {
     });
   };
 });
+//Route for authenticated users to view only their posts, whether shared or not
+router.get("/your-trails/:id", (request, response) => {
+  console.log(request.session.currentUser);
+  if (request.session.currentUser !== request.params.id) {
+    response.redirect("/account/login");
+  } else {
+    Trail.find({user: request.params.id}, (error, data) => {
+      if (error) {
+        console.log(error);
+        response.send(errorResponse);
+      } else {
+        response.render("trails/user.ejs", {
+          trails: data,
+          currentUser: request.session.currentUser,
+          currentUserName: request.session.currentUserName
+        });
+      };
+    });
+  };
+});
 
 //////////////////
 ////POST routes///
