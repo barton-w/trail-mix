@@ -6,16 +6,35 @@
     <title>Trail Mix</title>
   </head>
   <body>
+  <nav role="navigation">
+    <div id="menuToggle">
+      <input type="checkbox" />
+
+    <!--
+    Some spans to act as a hamburger.
+
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+    <ul id="menu">
+      <a class="button button-primary" id="button-header" href="#"><li>Sign Up</li></a>
+      <a class="button" id="button-header" href="#"><li>Log In</li></a>
+    </ul>
+  </div>
+</nav>
     <div class="container">
-      <h1 class="header">Trail Mix</h1>
-      <%if(currentUser === "none"){%>
-        <a class="button button-primary header" href="/account/create">Sign Up</a>
-        <a class="button header" href="/account/login">Log In</a>
-      <%}else{%>
-        <a class="button button-primary header" href="/trails/add">Add a Trail</a>
-        <a class="button header" href="/trails/your-trails/<%=currentUser%>">Your Trails</a>
-      <%}%>
-      <h5>Save and Share Your Adventures</h5>
+      <div class="header">
+        <h1>Trail Mix</h1>
+        <h5>Save and Share Your Adventures</h5>
+      </div>
       <h3>Recent Posts from the Trail Mix Community</h3>
       <%for(let i=0; i<trails.length; i++){%>
         <div class="trail u-full-width" style="background-image: url(<%=trails[i].image%>)">
