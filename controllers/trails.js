@@ -113,6 +113,7 @@ router.get("/your-trails/:id", (request, response) => {
 router.post("/add", (request, response) => {
   request.body.share === "on" ? request.body.share = true : request.body.share = false;
   request.body.user = request.session.currentUser;
+  request.body.username = request.session.currentUserName;
   Trail.create(request.body, (error, createdTrail) => {
     if (error) {
       console.log(error);

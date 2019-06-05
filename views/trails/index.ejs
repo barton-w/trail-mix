@@ -21,7 +21,10 @@
         <div class="trail u-full-width" style="background-image: url(<%=trails[i].image%>)">
           <div class="trail-preview">
             <h5><%=trails[i].trail_name%></h5>
+            <p><%=trails[i].location%></p>
+            <p><%=trails[i].distance%></p>
             <p><%=trails[i].trail_features%></p>
+            <p>Posted by: <%=trails[i].username%></p>
             <a class="button" href="/trails/view/<%=trails[i]._id%>">See More</a>
           </div>
         </div>

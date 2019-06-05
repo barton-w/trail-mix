@@ -15,7 +15,8 @@ const trailSchema = new mongoose.Schema({
   wildlife: String,
   flora: String,
   notes: String,
-  user: {type: String, required: true}
+  user: {type: String, required: true},
+  username: {type: String, required: true}
 }, {timestamps: true});
 const Trail = mongoose.model("Trail", trailSchema);
 

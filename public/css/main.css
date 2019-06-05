@@ -23,13 +23,22 @@ h1 {
   border: 1px solid black;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-bottom: 10%;
+  position: relative;
 }
 
 .trail-preview {
-  border: 1px solid red;
   position: absolute;
   bottom: 0;
-  margin: 4%;
-  padding: 2%;
+  margin: 2% 4%;
+  padding: 2% 4%;
   background-color: ghostwhite;
+}
+
+.trail-preview > h5,p {
+  margin: 0;
+}
+
+.trail-preview > .button {
+  margin: 10% 0 2% 0;
 }
