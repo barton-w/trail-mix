@@ -9,8 +9,8 @@ const accountController = require("./controllers/account.js");
 const trailsController = require("./controllers/trails.js");
 
 //Configuration
-const port = process.env.PORT;
-const mongodbURI = process.env.MONGODB_URI;
+const port = process.env.PORT || 3000;
+const mongodbURI = process.env.MONGODB_URI || "mongodb://localhost/trail_mix";
 
 //Middleware handlers
 app.use(express.urlencoded({extended: true}));
@@ -36,7 +36,7 @@ app.listen(port, () => {
   console.log("App listening on port:", port);
 })
 
-//Routes
+//Redirect to /trails
 app.get("/", (request, response) => {
   response.redirect("/trails");
 });

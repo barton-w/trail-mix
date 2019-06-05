@@ -1,6 +1,9 @@
 {
   "name": "trail-mix",
   "version": "1.0.0",
+  "engines": {
+    "node": "11.11.0"
+  },
   "description": "trail-mix",
   "main": "server.js",
   "scripts": {
