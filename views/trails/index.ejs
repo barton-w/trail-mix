@@ -6,19 +6,26 @@
     <title>Trail Mix</title>
   </head>
   <body>
-    <h1>Trail Mix</h1>
-    <%if(currentUser === "none"){%>
-      <a href="/account/create">Create Your Trail Mix Account</a>
-      <a href="/account/login">Log In</a>
-    <%}else{%>
-      <a class="button" href="/trails/your-trails/<%=currentUser%>">See Your Trails</a>
-      <a class="button button-primary" href="/trails/add">Add a Trail</a>
-    <%}%>
-    <h2>Recent Posts from the Trail Mix Community</h2>
-    <%for(let i=0; i<trails.length; i++){%>
-      <h5><%=trails[i].trail_name%></h5>
-      <p><%=trails[i].trail_features%></p>
-      <a class="button" href="/trails/view/<%=trails[i]._id%>">See More</a>
-    <%}%>
+    <div class="container">
+      <h1 class="header">Trail Mix</h1>
+      <%if(currentUser === "none"){%>
+        <a class="button button-primary header" href="/account/create">Sign Up</a>
+        <a class="button header" href="/account/login">Log In</a>
+      <%}else{%>
+        <a class="button button-primary header" href="/trails/add">Add a Trail</a>
+        <a class="button header" href="/trails/your-trails/<%=currentUser%>">Your Trails</a>
+      <%}%>
+      <h5>Save and Share Your Adventures</h5>
+      <h3>Recent Posts from the Trail Mix Community</h3>
+      <%for(let i=0; i<trails.length; i++){%>
+        <div class="trail u-full-width" style="background-image: url(<%=trails[i].image%>)">
+          <div class="trail-preview">
+            <h5><%=trails[i].trail_name%></h5>
+            <p><%=trails[i].trail_features%></p>
+            <a class="button" href="/trails/view/<%=trails[i]._id%>">See More</a>
+          </div>
+        </div>
+        <%}%>
+    </div>
   </body>
 </html>

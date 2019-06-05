@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo&display=swap');
+
+body {
+  margin-top: 3%;
+  font-family: "Archivo", sans-serif;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+.header {
+  display: inline-block;
+}
+
+.header.button {
+  float: right;
+  margin: 1.5% 2%;
+}
+
+.trail {
+  height: 500px;
+  border: 1px solid black;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.trail-preview {
+  border: 1px solid red;
+  position: absolute;
+  bottom: 0;
+  margin: 4%;
+  padding: 2%;
+  background-color: ghostwhite;
+}
