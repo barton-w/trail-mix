@@ -6,13 +6,66 @@
     <title><%=trail[0].trail_name%></title>
   </head>
   <body>
-    <h1><%=trail[0].trail_name%></h1>
-    <p><%=trail[0].trail_features%></p>
+    <div class="header">
+      <nav role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox"/>
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <%if(currentUser==="none"){%>
+              <a class="button button-primary" id="button-header" href="/account/create"><li>Sign Up</li></a>
+              <a class="button" id="button-header" href="/account/login"><li>Log In</li></a>
+            <%}else{%>
+              <a class="button button-primary" id="button-header" href="/trails/add"><li>Add a Trail</li></a>
+              <a class="button" id="button-header" href="/trails/your-trails/<%=currentUser%>"><li>Your Trails</li></a>
+              <a class="button" id="button-header-logout" href="/trails"><li>Home</li></a>
+              <a class="button" id="button-header-logout" href="/account/logout"><li>Log Out</li></a>
+            <%}%>
+          </ul>
+        </div>
+      </nav>
+      <div class="header-text">
+        <h1>Trail Mix</h1>
+      </div>
+    </div>
+    <div class="header-tag">
+      <h2><%=trail[0].trail_name%></h2>
+    </div>
+    <div class="container">
+      <h3>Posted by <%=trail[0].username%></h3>
+      <p class="show">Features: <%=trail[0].trail_features%></p>
+      <table class="u-full-width">
+        <tbody>
+          <tr>
+            <td>Location: <%=trail[0].location%></td>
+            <td>Route: <%=trail[0].route%></td>
+            <td>Distance: <%=trail[0].distance%></td>
+          </tr>
+          <tr>
+            <td>Conditions: <%=trail[0].conditions%></td>
+            <td>Exposure: <%=trail[0].exposure%></td>
+            <td>Elevation Gain: <%=trail[0].elevation_gain%></td>
+          </tr>
+          <tr>
+            <td>Difficulty: <%=trail[0].difficulty%></td>
+            <td>Wildlife: <%=trail[0].wildlife%></td>
+            <td>Flora: <%=trail[0].flora%></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="show">Noes: <%=trail[0].notes%></p>
+    </div>
+    <div class="show-image u-full-width" style="background-image: url(<%=trail[0].image%>)">
+    </div>
+    <div class="container">
     <%if(currentUser === trail[0].user){%>
-      <a class="button" href="/trails/edit/<%=trail[0]._id%>">Edit Trail</a>
+      <a id="edit-button" class="button button-primary six columns" href="/trails/edit/<%=trail[0]._id%>">Edit</a>
       <form action="/trails/<%=trail[0]._id%>?_method=DELETE" method="post">
-        <input type="submit" value="Delete">
+        <input id="delete-button" class="button six columns" type="submit" value="Delete">
       </form>
     <%}%>
+    </div>
   </body>
 </html>

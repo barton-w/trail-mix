@@ -34,6 +34,11 @@ body {
     font-size: 6vw;
   }
 
+  h3 {
+    font-size: 5vw;
+    margin-bottom: 3%;
+  }
+
   .main {
     text-align: center;
   }
@@ -177,6 +182,43 @@ body {
     transform: none;
   }
 
+  .show-image {
+    height: 900px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 8%;
+    position: relative;
+  }
+
+  #edit-button {
+    font-size: 5rem;
+    height: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    margin-right: 2%;
+    padding: 6px 10px;
+  }
+
+  #edit-button {
+    font-size: 5rem;
+    height: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2%;
+    padding: 6px 10px;
+  }
+
+  td {
+    font-size: 2vw;
+  }
+
+  p {
+    font-size: 4vw;
+  }
+
   /* Form styling from Skeleton - making fields larger for mobile
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   input[type="email"],
@@ -234,12 +276,16 @@ body {
     border-width: 0; }
   input[type="checkbox"],
   input[type="radio"] {
-    transform: scale(4);
-    margin: 5%;
     display: inline; }
   label > .label-body {
     font-size: 5rem;
     display: inline-block;
     margin-left: .5rem;
     font-weight: normal; }
+
+    #share {
+      transform: scale(4);
+      margin: 5%;
+      margin-bottom: 10%;
+    }
 /* } */

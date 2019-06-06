@@ -8,6 +8,7 @@ const errorResponse = "Oh no, an error occurred! Please try again";
 //////////////////
 ////GET routes////
 //////////////////
+//Create account
 router.get("/create", (request, response) => {
   if (request.session.currentUser) {
     response.redirect("/trails");
@@ -15,6 +16,7 @@ router.get("/create", (request, response) => {
     response.render("account/create.ejs");
   };
 });
+//Log in
 router.get("/login", (request, response) => {
   if (request.session.currentUser) {
     response.redirect("/trails");
@@ -22,6 +24,17 @@ router.get("/login", (request, response) => {
     response.render("account/login.ejs", {
       message: "none"
     });
+  };
+});
+//Log out - doing this as a get because I don't need data from the user in order to log them out
+router.get("/logout", (request, response) => {
+  if (request.session.currentUser) {
+    request.session.destroy(() => {
+      console.log("SESSION DESTROYED");
+      response.redirect("/trails");
+    });
+  } else {
+    response.redirect("/trails");
   };
 });
 
@@ -42,7 +55,6 @@ router.post("/create", (request, response) => {
   });
 });
 router.post("/login", (request, response) => {
-  console.log(request.body);
   User.findOne({username: request.body.username}, (error, foundUser) => {
     if (error) {
       console.log(error);
@@ -60,15 +72,6 @@ router.post("/login", (request, response) => {
         message: "Incorrect password, please try again"
       });
     };
-  });
-});
-
-//////////////////
-///DELETE routes//
-//////////////////
-router.delete("/logout", (request, response) => {
-  request.session.destroy(() => {
-    response.redirect("/trails");
   });
 });
 

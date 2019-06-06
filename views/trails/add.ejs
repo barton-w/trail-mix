@@ -6,25 +6,7 @@
     <title>Add a Trail</title>
   </head>
   <body>
-    <div class="header">
-      <nav role="navigation">
-        <div id="menuToggle">
-          <input type="checkbox"/>
-          <span></span>
-          <span></span>
-          <span></span>
-          <ul id="menu">
-              <a class="button button-primary" id="button-header" href="/trails/add"><li>Add a Trail</li></a>
-              <a class="button" id="button-header" href="/trails/your-trails/<%=currentUser%>"><li>Your Trails</li></a>
-              <a class="button" id="button-header-logout" href="/trails"><li>Home</li></a>
-              <a class="button" id="button-header-logout" href="#"><li>Log Out</li></a>
-          </ul>
-        </div>
-      </nav>
-      <div class="header-text">
-        <h1>Trail Mix</h1>
-      </div>
-    </div>
+    <%include ../../partials/menu.ejs%>
     <div class="header-tag">
       <h2>Add a Trail</h2>
     </div>
@@ -100,7 +82,7 @@
           </div>
           <div class="row">
             <label for="share">
-              <input type="checkbox" name="share">
+              <input type="checkbox" id="share" name="share">
               <span class="label-body">Share this trail publicly</span>
             </label>
           </div>
