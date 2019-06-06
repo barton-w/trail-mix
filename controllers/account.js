@@ -63,5 +63,14 @@ router.post("/login", (request, response) => {
   });
 });
 
+//////////////////
+///DELETE routes//
+//////////////////
+router.delete("/logout", (request, response) => {
+  request.session.destroy(() => {
+    response.redirect("/trails");
+  });
+});
+
 //Export router
 module.exports = router;

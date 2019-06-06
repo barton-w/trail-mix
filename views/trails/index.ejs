@@ -22,9 +22,9 @@
               <a class="button button-primary" id="button-header" href="/account/create"><li>Sign Up</li></a>
               <a class="button" id="button-header" href="/account/login"><li>Log In</li></a>
             <%}else{%>
-              <a class="button button-primary" id="button-header" href="#"><li>Add a Trail</li></a>
-              <a class="button" id="button-header" href="#"><li>Your Trails</li></a>
-              <a class="button" id="button-header" href="#"><li>Log Out</li></a>
+              <a class="button button-primary" id="button-header" href="/trails/add"><li>Add a Trail</li></a>
+              <a class="button" id="button-header" href="/trails/your-trails/<%=currentUser%>"><li>Your Trails</li></a>
+              <a class="button" id="button-header-logout" href="#"><li>Log Out</li></a>
             <%}%>
           </ul>
         </div>
