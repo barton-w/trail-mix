@@ -3,14 +3,26 @@
   <head>
     <meta charset="utf-8">
     <%include ../../partials/stylesheets.ejs%>
-    <title>Your Trail</title>
+    <title>Your Trails</title>
   </head>
   <body>
-    <h1>Your Trails</h1>
-    <%for(let i=0; i<trails.length; i++){%>
-      <h5><%=trails[i].trail_name%></h5>
-      <p><%=trails[i].trail_features%></p>
-      <a class="button" href="/trails/view/<%=trails[i]._id%>">See More</a>
-    <%}%>
+    <%include ../../partials/menu.ejs%>
+    <div class="header-tag">
+      <h2>Your Trails</h2>
+    </div>
+    <div class="main">
+      <%for(let i=0; i<trails.length; i++){%>
+        <div class="trail u-full-width" style="background-image: url(<%=trails[i].image%>)">
+          <div class="trail-preview">
+            <h5><%=trails[i].trail_name%></h5>
+            <p><%=trails[i].location%></p>
+            <p><%=trails[i].distance%></p>
+            <p><%=trails[i].trail_features%></p>
+            <p>Posted by: <%=trails[i].username%></p>
+            <a class="button" href="/trails/view/<%=trails[i]._id%>">See More</a>
+          </div>
+        </div>
+        <%}%>
+    </div>
   </body>
 </html>

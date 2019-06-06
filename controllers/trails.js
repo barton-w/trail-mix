@@ -104,7 +104,7 @@ router.get("/your-trails/:id", (request, response) => {
           currentUserName: request.session.currentUserName
         });
       };
-    });
+    }).sort({createdAt: -1});
   };
 });
 
