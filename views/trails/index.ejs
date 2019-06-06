@@ -38,7 +38,8 @@
     <div class="header-tag">
       <h2>Save and Share Your Adventures</h2>
     </div>
-      <h3>Recent Posts from the Trail Mix Community</h3>
+    <div class="main">
+      <h2>Recent Shared Posts</h2>
       <%for(let i=0; i<trails.length; i++){%>
         <div class="trail u-full-width" style="background-image: url(<%=trails[i].image%>)">
           <div class="trail-preview">
@@ -51,5 +52,6 @@
           </div>
         </div>
         <%}%>
+    </div>
   </body>
 </html>
