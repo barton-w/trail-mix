@@ -9,26 +9,24 @@
     <div class="header">
       <nav role="navigation">
         <div id="menuToggle">
-          <input type="checkbox" />
-
-        <!--
-        Some spans to act as a hamburger.
-
-        They are acting like a real hamburger,
-        not that McDonalds stuff.
-        -->
-        <span></span>
-        <span></span>
-        <span></span>
-
-        <!--
-        Too bad the menu has to be inside of the button
-        but hey, it's pure CSS magic.
-        -->
-        <ul id="menu">
-          <a class="button button-primary" id="button-header" href="#"><li>Sign Up</li></a>
-          <a class="button" id="button-header" href="#"><li>Log In</li></a>
-        </ul>
+          <input type="checkbox"
+          <%if(currentUser!=="none"){%>
+            checked
+          <%}%>
+          />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <%if(currentUser==="none"){%>
+              <a class="button button-primary" id="button-header" href="/account/create"><li>Sign Up</li></a>
+              <a class="button" id="button-header" href="/account/login"><li>Log In</li></a>
+            <%}else{%>
+              <a class="button button-primary" id="button-header" href="#"><li>Add a Trail</li></a>
+              <a class="button" id="button-header" href="#"><li>Your Trails</li></a>
+              <a class="button" id="button-header" href="#"><li>Log Out</li></a>
+            <%}%>
+          </ul>
         </div>
       </nav>
       <div class="header-text">
