@@ -6,35 +6,38 @@
     <title>Trail Mix</title>
   </head>
   <body>
-  <nav role="navigation">
-    <div id="menuToggle">
-      <input type="checkbox" />
+    <div class="header">
+      <nav role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" />
 
-    <!--
-    Some spans to act as a hamburger.
+        <!--
+        Some spans to act as a hamburger.
 
-    They are acting like a real hamburger,
-    not that McDonalds stuff.
-    -->
-    <span></span>
-    <span></span>
-    <span></span>
+        They are acting like a real hamburger,
+        not that McDonalds stuff.
+        -->
+        <span></span>
+        <span></span>
+        <span></span>
 
-    <!--
-    Too bad the menu has to be inside of the button
-    but hey, it's pure CSS magic.
-    -->
-    <ul id="menu">
-      <a class="button button-primary" id="button-header" href="#"><li>Sign Up</li></a>
-      <a class="button" id="button-header" href="#"><li>Log In</li></a>
-    </ul>
-  </div>
-</nav>
-    <div class="container">
-      <div class="header">
+        <!--
+        Too bad the menu has to be inside of the button
+        but hey, it's pure CSS magic.
+        -->
+        <ul id="menu">
+          <a class="button button-primary" id="button-header" href="#"><li>Sign Up</li></a>
+          <a class="button" id="button-header" href="#"><li>Log In</li></a>
+        </ul>
+        </div>
+      </nav>
+      <div class="header-text">
         <h1>Trail Mix</h1>
-        <h5>Save and Share Your Adventures</h5>
       </div>
+    </div>
+    <div class="header-tag">
+      <h2>Save and Share Your Adventures</h2>
+    </div>
       <h3>Recent Posts from the Trail Mix Community</h3>
       <%for(let i=0; i<trails.length; i++){%>
         <div class="trail u-full-width" style="background-image: url(<%=trails[i].image%>)">
@@ -48,6 +51,5 @@
           </div>
         </div>
         <%}%>
-    </div>
   </body>
 </html>

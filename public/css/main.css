@@ -4,13 +4,29 @@ body {
   font-family: "Archivo", sans-serif;
 }
 
-h1 {
-  margin-bottom: 0;
-  font-size: 17rem;
+.header {
+  display: flex;
+  justify-content: left;
 }
 
-.header {
+.header-text {
+  margin: 0 0 0 5%;
+  width: 85%;
+  text-align: left;
+}
+
+.header-tag {
   text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 20vw;
+}
+
+h2 {
+  margin: 0 0 5% 0;
+  font-size: 6vw;
 }
 
 .trail {
@@ -57,10 +73,10 @@ nav > a {
 
 #menuToggle
 {
-  display: block;
+  display: inline-block;
   position: relative;
-  top: 50px;
-  left: 50px;
+  top: 25%;
+  left: 10%;
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
@@ -69,8 +85,9 @@ nav > a {
 #menuToggle input
 {
   display: block;
-  width: 110px;
-  height: 80px;
+  width: 100%;
+  height: 17vh;
+  margin-bottom: 0;
   position: absolute;
   top: -7px;
   left: -5px;
@@ -86,9 +103,9 @@ nav > a {
 #menuToggle span
 {
   display: block;
-  width: 100px;
-  height: 10px;
-  margin-bottom: 15px;
+  width: 16vw;
+  height: 2vw;
+  margin-bottom: 15%;
   position: relative;
   background: black;
   border-radius: 3px;
