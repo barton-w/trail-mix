@@ -6,26 +6,48 @@
     <title>Log In To Your Trial Mix Account</title>
   </head>
   <body>
-    <h1>Log In To Your Trail Mix Account</h1>
+    <div class="header">
+      <nav role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox"/>
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+              <a class="button button-primary" id="button-header" href="/account/create"><li>Sign Up</li></a>
+              <a class="button" id="button-header" href="/account/login"><li>Log In</li></a>
+              <a class="button button" id="button-header" href="/trails"><li>Home</li></a>
+          </ul>
+        </div>
+      </nav>
+      <div class="header-text">
+        <h1>Trail Mix</h1>
+      </div>
+    </div>
+    <div class="header-tag">
+      <h2>Log In to your Trail Mix Account</h2>
+    </div>
+    <div class="container">
+      <%if(message !== "none"){%>
+        <div class="message">
+          <h3><%=message%></h3>
+        </div>
+      <%}%>
     <form action="/account/login" method="post">
         <div class="row">
-          <div class="four columns">
+          <div class="twelve columns">
             <input class="u-full-width" type="text" name="username" placeholder="Username">
           </div>
         </div>
         <div class="row">
-          <div class="four columns">
+          <div class="twelve columns">
             <input class="u-full-width" type="password" name="password" placeholder="Password">
           </div>
         </div>
         <div class="row">
-          <input class="button-primary" type="submit" value="Log In">
+          <input class="button-primary twelve columns" type="submit" value="Log In">
         </div>
       </form>
-      <%if(message !== "none"){%>
-        <div class="message">
-          <p><%=message%></p>
-        </div>
-      <%}%>
+    </div>
   </body>
 </html>

@@ -32,9 +32,10 @@ router.get("/", (request, response) => {
 });
 //Route to a form to create a post
 router.get("/add", (request, response) => {
-  console.log(request.session.currentUser);
   if (request.session.currentUser) {
-    response.render("trails/add.ejs");
+    response.render("trails/add.ejs", {
+      currentUser: request.session.currentUser
+    });
   } else {
     response.redirect("/account/login");
   };
