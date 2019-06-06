@@ -81,7 +81,9 @@ router.get("/edit/:id", (request, response) => {
         response.redirect("/trails");
       } else {
         response.render("trails/edit.ejs", {
-          trail: foundTrail
+          trail: foundTrail,
+          currentUser: request.session.currentUser,
+          currentUserName: request.session.currentUserName
         });
       };
     });

@@ -64,7 +64,7 @@ body {
     margin: 3% 2%;
     padding: 2% 4%;
     background-color: ghostwhite;
-    opacity: .75;
+    opacity: .9;
   }
 
   .trail-preview > h5 {
@@ -79,7 +79,7 @@ body {
 
   .trail-preview > .button {
     margin: 5% 0 2% 0;
-    width: 85%;
+    width: 400px;
     height: 80px;
     display: flex;
     align-items: center;
@@ -268,8 +268,10 @@ body {
     outline: 0; }
   label,
   legend {
+    font-size: 5.5rem;
     display: block;
     margin-bottom: .5rem;
+    margin-top: 5%;
     font-weight: 600; }
   fieldset {
     padding: 0;
