@@ -182,9 +182,11 @@ body {
   input[type="tel"],
   input[type="url"],
   input[type="password"],
+  input[type="submit"],
   textarea,
   select {
-    height: 38px;
+    font-size: 5rem;
+    height: 150px;
     padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
     background-color: #fff;
     border: 1px solid #D1D1D1;
