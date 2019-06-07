@@ -1,7 +1,4 @@
-if ($()) {
-  console.log("jQuery on");
-}
-
+//jQuery document ready function
 $(() => {
   let $p1 = $("#p1");
   let $p2 = $("#p2");
