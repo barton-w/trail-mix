@@ -21,6 +21,7 @@ app.use(session({
 }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
+app.use("/uploads", express.static("uploads"));
 app.use("/account", accountController);
 app.use("/trails", trailsController);
 

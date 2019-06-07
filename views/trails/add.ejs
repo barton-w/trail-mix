@@ -11,7 +11,7 @@
       <h2>Add a Trail</h2>
     </div>
     <div class="container">
-      <form action="/trails/add" method="post">
+      <form action="/trails/add" method="post" enctype="multipart/form-data">
           <div class="row">
             <div class="twelve columns">
               <input class="u-full-width" type="text" name="trail_name" placeholder="The trail you hiked" required>
@@ -19,12 +19,13 @@
           </div>
           <div class="row">
             <div class="twelve columns">
-              <input class="u-full-width" type="text" name="location" placeholder="Location" required>
+              <label id="image-upload-label" class="button u-full-width" for="image-upload">Upload A Photo</label>
+              <input id="image-upload" class="image-upload button u-full-width" type="file" name="image">
             </div>
           </div>
           <div class="row">
             <div class="twelve columns">
-              <input class="u-full-width" type="text" name="image" placeholder="Image URL">
+              <input class="u-full-width" type="text" name="location" placeholder="Location" required>
             </div>
           </div>
           <div class="row">

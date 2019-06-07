@@ -1,7 +1,21 @@
+//Establishing dependencies
 const express = require("express");
 const router = express.Router();
 const Trail = require("../models/Trail.js");
 const errorResponse = "Oh no, an error occurred! Please try again";
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: (request, file, callback) => {
+    callback(null, "./uploads/");
+  },
+  filename: (request, file, callback) => {
+    callback(null, new Date().toISOString()+file.originalname);
+  }
+});
+const upload = multer({storage: storage, limits: {
+  //10mb - I'm generous
+  fileSize: 1024 * 1024 * 10
+}});
 
 //////////////////
 ////GET routes////
@@ -113,7 +127,8 @@ router.get("/your-trails/:id", (request, response) => {
 //////////////////
 ////POST routes///
 //////////////////
-router.post("/add", (request, response) => {
+router.post("/add", upload.single("image"), (request, response) => {
+  request.body.image = "/"+request.file.path;
   request.body.share === "on" ? request.body.share = true : request.body.share = false;
   request.body.user = request.session.currentUser;
   request.body.username = request.session.currentUserName;
@@ -122,7 +137,7 @@ router.post("/add", (request, response) => {
       console.log(error);
       response.send(errorResponse);
     } else {
-      response.redirect("/");
+      response.redirect("/trails");
     };
   });
 });

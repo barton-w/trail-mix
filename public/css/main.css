@@ -294,4 +294,26 @@ body {
       margin: 5%;
       margin-bottom: 10%;
     }
+
+    #image-upload-label {
+      margin-top: 0;
+      font-size: 5rem;
+      height: 175px;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      margin-left: 0;
+      margin-right: 2%;
+      padding: 6px 10px;
+      }
+    }
+
+  #image-upload {
+  	width: 0.1px;
+  	height: 0.1px;
+  	opacity: 0;
+  	overflow: hidden;
+  	position: absolute;
+  	z-index: -1;
+    }
 /* } */
