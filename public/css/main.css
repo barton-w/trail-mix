@@ -4,8 +4,12 @@ body {
   font-family: "Archivo", sans-serif;
 }
 
-.message {
+.message-bad {
   color: red;
+}
+
+.message-good {
+  color: green;
 }
 
 /* @media screen and (max-width: 1000px) { */
