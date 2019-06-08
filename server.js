@@ -20,7 +20,7 @@ app.use(session({
   saveUninitialized: false
 }));
 app.use(methodOverride("_method"));
-app.use("/uploads", express.static("uploads"));
+// app.use("/uploads", express.static("uploads"));
 app.use(express.static("public"));
 app.use("/account", accountController);
 app.use("/trails", trailsController);

@@ -3,27 +3,25 @@ const express = require("express");
 const router = express.Router();
 const Trail = require("../models/Trail.js");
 const errorResponse = "Oh no, an error occurred! Please try again";
-const multer = require("multer");
-const storage = multer.diskStorage({
-  destination: (request, file, callback) => {
-    callback(null, "./uploads/");
-  },
-  filename: (request, file, callback) => {
-    callback(null, new Date().toISOString()+file.originalname.replace(/ /g, "_"));
-  }
-});
-const upload = multer({storage: storage, limits: {
-  //10mb - I'm generous
-  fileSize: 1024 * 1024 * 10
-}});
+// const multer = require("multer");
+// const storage = multer.diskStorage({
+//   destination: (request, file, callback) => {
+//     callback(null, "./uploads/");
+//   },
+//   filename: (request, file, callback) => {
+//     callback(null, new Date().toISOString()+file.originalname.replace(/ /g, "_"));
+//   }
+// });
+// const upload = multer({storage: storage, limits: {
+//   //10mb - I'm generous
+//   fileSize: 1024 * 1024 * 10
+// }});
 
 //////////////////
 ////GET routes////
 //////////////////
 //Main page
 router.get("/", (request, response) => {
-  console.log(request.session.currentUser);
-  console.log(request.session.currentUserName);
   let currentUser = "none";
   let currentUserName = "none";
   if (request.session.currentUser) {
@@ -127,12 +125,25 @@ router.get("/your-trails/:id", (request, response) => {
 //////////////////
 ////POST routes///
 //////////////////
-router.post("/add", upload.single("image"), (request, response) => {
-  request.body.image = "/"+request.file.path;
+// router.post("/add", upload.single("image"), (request, response) => {
+//   request.body.image = "/"+request.file.path;
+//   request.body.share === "on" ? request.body.share = true : request.body.share = false;
+//   request.body.user = request.session.currentUser;
+//   request.body.username = request.session.currentUserName;
+//   console.log(request.body);
+//   Trail.create(request.body, (error, createdTrail) => {
+//     if (error) {
+//       console.log(error);
+//       response.send(errorResponse);
+//     } else {
+//       response.redirect("/trails");
+//     };
+//   });
+// });
+router.post("/add", (request, response) => {
   request.body.share === "on" ? request.body.share = true : request.body.share = false;
   request.body.user = request.session.currentUser;
   request.body.username = request.session.currentUserName;
-  console.log(request.body);
   Trail.create(request.body, (error, createdTrail) => {
     if (error) {
       console.log(error);

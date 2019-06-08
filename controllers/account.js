@@ -30,7 +30,6 @@ router.get("/login", (request, response) => {
 router.get("/logout", (request, response) => {
   if (request.session.currentUser) {
     request.session.destroy(() => {
-      console.log("SESSION DESTROYED");
       response.redirect("/trails");
     });
   } else {
