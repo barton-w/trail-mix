@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const Trail = require("../models/Trail.js");
 const errorResponse = "Oh no, an error occurred! Please try again";
+const moment = require("moment");
 // const multer = require("multer");
 // const storage = multer.diskStorage({
 //   destination: (request, file, callback) => {
@@ -34,6 +35,9 @@ router.get("/", (request, response) => {
       console.log(error);
       response.send(errorResponse);
     } else {
+      for (let i = 0; i < data.length; i++) {
+        data[i].displayDate = moment(data[i].createdAt).format('MMMM Do YYYY');
+      };
       response.render("trails/index.ejs", {
         currentUser: currentUser,
         currentUserName: currentUserName,
@@ -62,8 +66,6 @@ router.get("/view/:id", (request, response) => {
     currentUserName = request.session.currentUserName;
   };
   Trail.find({_id: request.params.id}, (error, foundTrail) => {
-    console.log(foundTrail[0].share);
-    console.log(foundTrail[0].user);
     if (error) {
       console.log(error);
       response.send(errorResponse);
@@ -71,6 +73,7 @@ router.get("/view/:id", (request, response) => {
     } else if (foundTrail[0].share === false && foundTrail[0].user !== currentUser) {
       response.redirect("/trails");
     } else {
+      foundTrail[0].displayDate = moment(foundTrail[0].createdAt).format('MMMM Do YYYY');
       response.render("trails/show.ejs", {
         trail: foundTrail,
         currentUser: currentUser,
@@ -111,6 +114,9 @@ router.get("/your-trails/:id", (request, response) => {
         console.log(error);
         response.send(errorResponse);
       } else {
+        for (let i = 0; i < data.length; i++) {
+          data[i].displayDate = moment(data[i].createdAt).format('MMMM Do YYYY');
+        };
         response.render("trails/user.ejs", {
           trails: data,
           currentUser: request.session.currentUser,
