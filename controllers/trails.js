@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
     callback(null, "./uploads/");
   },
   filename: (request, file, callback) => {
-    callback(null, new Date().toISOString()+file.originalname);
+    callback(null, new Date().toISOString()+file.originalname.replace(/ /g, "_"));
   }
 });
 const upload = multer({storage: storage, limits: {
@@ -132,6 +132,7 @@ router.post("/add", upload.single("image"), (request, response) => {
   request.body.share === "on" ? request.body.share = true : request.body.share = false;
   request.body.user = request.session.currentUser;
   request.body.username = request.session.currentUserName;
+  console.log(request.body);
   Trail.create(request.body, (error, createdTrail) => {
     if (error) {
       console.log(error);
