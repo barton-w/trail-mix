@@ -46,7 +46,8 @@ router.get("/", (request, response) => {
 router.get("/add", (request, response) => {
   if (request.session.currentUser) {
     response.render("trails/add.ejs", {
-      currentUser: request.session.currentUser
+      currentUser: request.session.currentUser,
+      currentUserName: request.session.currentUserName
     });
   } else {
     response.redirect("/account/login");
@@ -63,7 +64,6 @@ router.get("/view/:id", (request, response) => {
   Trail.find({_id: request.params.id}, (error, foundTrail) => {
     console.log(foundTrail[0].share);
     console.log(foundTrail[0].user);
-    console.log(currentUser);
     if (error) {
       console.log(error);
       response.send(errorResponse);
@@ -103,7 +103,6 @@ router.get("/edit/:id", (request, response) => {
 });
 //Route for authenticated users to view only their posts, whether shared or not
 router.get("/your-trails/:id", (request, response) => {
-  console.log(request.session.currentUser);
   if (request.session.currentUser !== request.params.id) {
     response.redirect("/account/login");
   } else {

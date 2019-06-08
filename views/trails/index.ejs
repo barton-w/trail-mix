@@ -22,6 +22,8 @@
               <a class="button button-primary" id="button-header" href="/account/create"><li>Sign Up</li></a>
               <a class="button" id="button-header" href="/account/login"><li>Log In</li></a>
             <%}else{%>
+              <div class="spacer"></div>
+              <li id="user-menu"><%=currentUserName%></li>
               <a class="button button-primary" id="button-header" href="/trails/add"><li>Add a Trail</li></a>
               <a class="button" id="button-header" href="/trails/your-trails/<%=currentUser%>"><li>Your Trails</li></a>
               <a class="button" id="button-header-logout" href="/account/logout"><li>Log Out</li></a>

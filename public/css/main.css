@@ -94,12 +94,20 @@ body {
   #button-header, #button-header-logout {
     width: 100%;
     height: 170px;
-    margin: 30% 0;
+    margin: 10% 0 25% 0;
     font-size: 6rem;
     padding: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .spacer {
+    margin-top: 10%;
+  }
+
+  #user-menu {
+    font-size: 9rem;
   }
 
   #menuToggle {
@@ -204,16 +212,6 @@ body {
     padding: 6px 10px;
   }
 
-  #edit-button {
-    font-size: 5rem;
-    height: 175px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 2%;
-    padding: 6px 10px;
-  }
-
   td {
     font-size: 3vw;
   }
@@ -287,6 +285,11 @@ body {
     display: inline-block;
     margin-left: .5rem;
     font-weight: normal; }
+  input,
+  textarea,
+  select,
+  fieldset {
+      margin-bottom: 4rem; }
 
     #share {
       transform: scale(4);
@@ -521,7 +524,7 @@ body {
       outline: 0; }
     label,
     legend {
-      font-size: 5.5rem;
+      font-size: 4rem;
       display: block;
       margin-bottom: 0;
       margin-top: 1%;
@@ -537,6 +540,11 @@ body {
       display: inline-block;
       margin-left: .5rem;
       font-weight: normal; }
+    input,
+    textarea,
+    select,
+    fieldset {
+        margin-bottom: 1.5rem; }
 
       #share {
         transform: scale(2);
@@ -549,6 +557,33 @@ body {
         background-size: cover;
         margin-bottom: 8%;
         position: relative;
+      }
+
+      .show-image {
+        height: 800px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom: 8%;
+        position: relative;
+      }
+
+      #edit-button {
+        font-size: 3rem;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0;
+        margin-right: 2%;
+        padding: 6px 10px;
+      }
+
+      td {
+        font-size: 1.5vw;
+      }
+
+      p {
+        font-size: 2vw;
       }
 
 }
